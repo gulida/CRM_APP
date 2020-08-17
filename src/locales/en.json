@@ -1,0 +1,20 @@
+{
+  "Message_Empty_Email": "Email field should not be empty!",
+  "Message_Correct_Email": "Enter correct email!",
+  "Message_Empty_Password": "Password field should not be empty!",
+  "Message_Correct_Password1": "Password should be at least ",
+  "Message_Correct_Password2": "symbols. Now there is only ",
+  "Not_FB_Error": "Something went wrong!",
+
+  "Title_Bill": "Bill",
+  "Title_History": "History",
+  "Title_Planning": "Planning",
+  "Title_Profile": "Profile",
+  "Title_Category": "Category",
+  "Title_Record": "New Record",
+
+  "Logout": "you are logged out!",
+  "auth/user-not-found": "There is no user record corresponding to this identifier. The user may have been deleted.",
+  "auth/wrong-password": "The password is invalid or the user does not have a password.",
+  "auth/email-already-in-use": "The email address is already in use by another account."
+}
