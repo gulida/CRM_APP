@@ -5,6 +5,7 @@
   "Message_Correct_Password1": "Password should be at least ",
   "Message_Correct_Password2": "symbols. Now there is only ",
   "Not_FB_Error": "Something went wrong!",
+  "Category_Created!": "Category was created!",
 
   "Title_Bill": "Bill",
   "Title_History": "History",
@@ -16,5 +17,19 @@
   "Logout": "you are logged out!",
   "auth/user-not-found": "There is no user record corresponding to this identifier. The user may have been deleted.",
   "auth/wrong-password": "The password is invalid or the user does not have a password.",
-  "auth/email-already-in-use": "The email address is already in use by another account."
+  "auth/email-already-in-use": "The email address is already in use by another account.",
+
+  "Bill_In_Currency": "Bill in currency",
+  "Rates": "Rates",
+  "Currency": "Currency",
+  "Rate": "Rate",
+  "Date": "Date",
+  "Create": "Create",
+  "Title": "Title",
+  "Enter_Title": "Enter category title",
+  "Limit": "Limit",
+  "Minimal_value": "Minimal value should be ",
+  "Edit": "Edit",
+  "Choose_Category": "Choose category",
+  "Update": "Update"
 }

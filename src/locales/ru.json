@@ -5,6 +5,7 @@
   "Message_Correct_Password1": "Пароль должен быть минимум ",
   "Message_Correct_Password2": "символов. Сейчас это всего ",
   "Not_FB_Error": "Something went wrong!",
+  "Category_Created!": "Категория создана!",
 
   "Title_Bill": "Счет",
   "Title_History": "История",
@@ -16,5 +17,21 @@
   "Logout": "Вы вышли из системы!",
   "auth/user-not-found": "There is no user record corresponding to this identifier. The user may have been deleted.",
   "auth/wrong-password": "The password is invalid or the user does not have a password.",
-  "auth/email-already-in-use": "The email address is already in use by another account."
+  "auth/email-already-in-use": "The email address is already in use by another account.",
+
+  "Bill_In_Currency": "Счет в валюте",
+  "Rates": "Курс валют",
+  "Currency": "Валюта",
+  "Rate": "Курс",
+  "Date": "Дата",
+  "Create": "Создать",
+  "Title": "Название",
+  "Enter_Title": "Введите название",
+  "Limit": "Лимит",
+  "Minimal_value": "Минимальная величина должен быть ",
+  "Edit": "Редактировать",
+  "Choose_Category": "Выберите категорию",
+  "Update": "Обновить",
+  "": "",
+  "": ""
 }
