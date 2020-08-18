@@ -16,9 +16,30 @@ export default {
     async fetchCategories ({commit, dispatch}) {
       try {
         const uid = await dispatch('getUid')
-        const categories = (await firebase.database().ref(`users/${uid}/categories`).once("value")).val()
+        const categories = (await firebase.database().ref(`users/${uid}/categories`).once("value")).val() || {}
         return Object.keys(categories).map(key => ({...categories[key], id: key }))
       } catch (e) {
+        commit('setError', e)
+        throw e
+      }
+    },
+
+    async updateCategory ({commit, dispatch}, {id, title, limit}) {
+      try {
+        const uid = await dispatch('getUid')
+        await firebase.database().ref(`/users/${uid}/categories`).child(id).update({title, limit})
+      } catch (e) {
+        commit('setError', e)
+        throw e
+      }
+    },
+
+    async fetchCategoryById({commit, dispatch}, idx) {
+      try {
+        const uid = await dispatch('getUid')
+        const category = (await firebase.database().ref(`users/${uid}/categories`).child(idx).once('value')).val()
+        return category
+      } catch (e){
         commit('setError', e)
         throw e
       }

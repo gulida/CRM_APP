@@ -11,7 +11,11 @@
 
         <CategoryCreate @created="addNewCategory" />
 
-        <CategoryEdit />
+        <CategoryEdit
+          :categories="categories"
+          @updated="updateCategories"
+          :key="categories.length + updateIndex"
+        />
 
       </div>
     </section>
@@ -26,11 +30,18 @@
     name: "Categories",
     data: () => ({
       loading: true,
-      categories: []
+      categories: [],
+      updateIndex: 0
     }),
     methods: {
       addNewCategory (category) {
         this.categories.push(category)
+      },
+      updateCategories (categoryData) {
+        const idx = this.categories.findIndex(c => c.id === categoryData.id)
+        this.categories[idx].title = categoryData.title
+        this.categories[idx].limit = categoryData.limit
+        this.updateIndex++
       }
     },
     async mounted() {

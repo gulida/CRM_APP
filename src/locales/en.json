@@ -6,6 +6,12 @@
   "Message_Correct_Password2": "symbols. Now there is only ",
   "Not_FB_Error": "Something went wrong!",
   "Category_Created!": "Category was created!",
+  "Category_Updated!": "Category was updated!",
+  "No_Category": "There is no any category.",
+  "Not_Enough_Money": "There is not enough money on your bill: ",
+  "Record_Created!": "New record was created!",
+  "No_Record_With_Id": "There is no record with this id",
+  "Outcomes_By_Category": "Outcomes by category",
 
   "Title_Bill": "Bill",
   "Title_History": "History",
@@ -31,5 +37,17 @@
   "Minimal_value": "Minimal value should be ",
   "Edit": "Edit",
   "Choose_Category": "Choose category",
-  "Update": "Update"
+  "Update": "Update",
+  "New_Record": "New record",
+  "Income": "Income",
+  "Outcome": "Outcome",
+  "Amount": "Amount",
+  "Description": "Description",
+  "Enter_Amount": "Please, enter amount!",
+  "Enter_Description": "Please, enter description!",
+  "Excess_By": "Excess by: ",
+  "Left": "Left: ",
+  "Record_History": "Record history",
+  "Type": "Type",
+  "Open": "Open"
 }
