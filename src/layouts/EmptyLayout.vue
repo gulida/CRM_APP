@@ -6,6 +6,7 @@
 
 <script>
   import messages from "@/utils/messages";
+  import localizeFilter from "@/filters/localize.filter";
 
   export default {
     name: "EmptyLayout",
@@ -16,7 +17,7 @@
     },
     watch: {
       error (fbError) {
-        this.$error(messages[fbError.code] || 'Something went wrong!')
+        this.$error(messages[fbError.code] || localizeFilter('Not_FB_Error'))
       }
     }
   }

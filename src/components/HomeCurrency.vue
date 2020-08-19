@@ -1,21 +1,21 @@
 <template>
   <div class="col s12 m6 l8">
-    <div class="card orange darken-3 bill-card">
+    <div class="card purple lighten-3 bill-card">
       <div class="card-content white-text">
         <div class="card-header">
-          <span class="card-title">Курс валют</span>
+          <span class="card-title">{{ 'Rates' | localize }}</span>
         </div>
-        <table>
+        <table class="currencyTable">
           <thead>
           <tr>
-            <th>Валюта</th>
-            <th>Курс</th>
-            <th>Дата</th>
+            <th>{{ 'Currency' | localize }}</th>
+            <th>{{ 'Rate' | localize }}</th>
+            <th>{{ 'Date' | localize }}</th>
           </tr>
           </thead>
 
           <tbody>
-          <tr v-for="c in currencies" :key="c">
+          <tr v-for="c in currencies" :key="c" >
             <td>{{ c }}</td>
             <td>{{  rates[c].toFixed(2) }}</td>
             <td>{{  date | date }}</td>

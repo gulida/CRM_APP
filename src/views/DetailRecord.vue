@@ -3,11 +3,11 @@
 
     <Loader v-if="loading"/>
 
-    <p v-else-if="!type" class="center">There is no record with this id.</p>
+    <p v-else-if="!type" class="center">{{ 'No_Record_With_Id' | localize }}</p>
 
     <div v-else>
       <div class="breadcrumb-wrap">
-        <router-link to="/history" class="breadcrumb">История</router-link>
+        <router-link to="/history" class="breadcrumb">{{ 'Title_History' | localize }}</router-link>
         <a @click.prevent class="breadcrumb">
           {{ type }}
         </a>
@@ -16,9 +16,9 @@
         <div class="col s12 m6">
           <div class="card" :class="color">
             <div class="card-content white-text">
-              <p>Описание: {{ description }}</p>
-              <p>Сумма: {{ amount | currency }}</p>
-              <p>Категория: {{ category }}</p>
+              <p>{{ 'Description' | localize }}: {{ description }}</p>
+              <p>{{ 'Amount' | localize }}: {{ amount | currency }}</p>
+              <p>{{ 'Category' | localize }}: {{ category }}</p>
 
               <small>{{  date | date('datetime') }}</small>
             </div>
@@ -30,8 +30,15 @@
 </template>
 
 <script>
+  import localizeFilter from "@/filters/localize.filter";
+
   export default {
     name: "DetailRecord",
+    metaInfo() {
+      return {
+        title: this.$title('Title_Detail')
+      }
+    },
     data: () => ({
       loading: true,
 
@@ -47,8 +54,8 @@
       const record = await this.$store.dispatch('fetchRecordById', idx)
       const category = await this.$store.dispatch('fetchCategoryById', record.categoryId)
 
-      this.type = record.type === 'income' ? 'Доход' : 'Расход'
-      this.color = record.type === 'income' ? 'green' : 'red'
+      this.type = record.type === 'income' ? localizeFilter('Income') : localizeFilter('Outcome')
+      this.color = record.type === 'income' ? 'green lighten-2' : 'purple lighten-3'
       this.description = record.description
       this.amount = record.amount
       this.category = category.title

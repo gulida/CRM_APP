@@ -6,7 +6,7 @@
 
       <Navbar @dehaze="isOpen = !isOpen" />
 
-      <Sidebar v-model="isOpen"/>
+      <Sidebar v-model="isOpen" :key="locale"/>
 
       <main class="app-content" :class="{full: !isOpen}">
         <div class="app-page">
@@ -14,8 +14,8 @@
         </div>
       </main>
 
-      <div class="fixed-action-btn" v-tooltip="'Add new record'">
-        <router-link class="btn-floating btn-large blue" to="/record">
+      <div class="fixed-action-btn" :key="locale + '1'" >
+        <router-link class="btn-floating btn-large teal lighten-3" to="/record" v-tooltip="CreateNewRecord">
           <i class="large material-icons">add</i>
         </router-link>
       </div>
@@ -27,21 +27,27 @@
   import Navbar from "@/components/app/Navbar";
   import Sidebar from "@/components/app/Sidebar";
   import messages from "@/utils/messages";
+  import localizeFilter from "@/filters/localize.filter";
 
   export default {
     name: "MainLayout",
     data: () => ({
       isOpen: true,
-      loading: true
+      loading: true,
+      CreateNewRecord: ''
     }),
     computed: {
       error() {
         return this.$store.getters.error
+      },
+      locale() {
+        this.CreateNewRecord = localizeFilter('Add_Record')
+        return this.$store.getters.info.locale
       }
     },
     watch: {
       error (fbError) {
-        this.$error(messages[fbError.code] || 'Something went wrong!')
+        this.$error(messages[fbError.code] || localizeFilter('Not_FB_Error'))
       }
     },
     async mounted() {

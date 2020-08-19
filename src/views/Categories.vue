@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>Категории</h3>
+      <h3>{{ 'Title_Category' | localize }}</h3>
     </div>
     <section>
 
@@ -28,6 +28,11 @@
 
   export default {
     name: "Categories",
+    metaInfo() {
+      return {
+        title: this.$title('Title_Category')
+      }
+    },
     data: () => ({
       loading: true,
       categories: [],

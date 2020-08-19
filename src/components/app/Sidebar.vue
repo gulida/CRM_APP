@@ -14,16 +14,18 @@
 </template>
 
 <script>
+import localizeFilter from "@/filters/localize.filter";
+
 export default {
   name: "Sidebar",
   props: ['value'],
   data: () => ({
     links: [
-      { title: 'Счет', url: '/', exact: true },
-      { title: 'История', url: '/history' },
-      { title: 'Планирование', url: '/planning' },
-      { title: 'Новая запись', url: '/record' },
-      { title: 'Категории', url: '/categories' }
+      { title: localizeFilter('Title_Bill'), url: '/', exact: true },
+      { title: localizeFilter('Title_History'), url: '/history' },
+      { title: localizeFilter('Title_Planning'), url: '/planning' },
+      { title: localizeFilter('Title_Record'), url: '/record' },
+      { title: localizeFilter('Title_Category'), url: '/categories' }
     ]
   }),
 }

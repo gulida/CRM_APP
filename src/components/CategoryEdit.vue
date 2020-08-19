@@ -2,10 +2,10 @@
   <div class="col s12 m6">
     <div>
       <div class="page-subtitle">
-        <h4>Редактировать</h4>
+        <h4>{{ 'Edit' | localize }}</h4>
       </div>
 
-      <p v-if="!categories.length" class="center">There is no any category.</p>
+      <p v-if="!categories.length" class="center">{{ 'No_Category' | localize }}</p>
 
       <form v-else @submit.prevent="submitHandler">
         <div class="input-field" >
@@ -19,7 +19,7 @@
               :value="c.id"
             >{{ c.title }}</option>
           </select>
-          <label>Выберите категорию</label>
+          <label>{{ 'Choose_Category' | localize }}</label>
         </div>
 
         <div class="input-field">
@@ -29,12 +29,12 @@
             v-model="title"
             :class="{invalid: $v.title.$dirty && !$v.title.required}"
           >
-          <label for="name">Название</label>
+          <label for="name">{{ 'Title' | localize }}</label>
           <span
             class="helper-text invalid"
             v-if="$v.title.$dirty && !$v.title.required"
           >
-            Введите название
+            {{ 'Message_EnterTitle' | localize }}
           </span>
         </div>
 
@@ -45,17 +45,17 @@
             v-model.number="limit"
             :class="{invalid: $v.limit.$dirty && !$v.limit.minValue}"
           >
-          <label for="limit">Лимит</label>
+          <label for="limit">{{ 'Limit' | localize }}</label>
           <span
             class="helper-text invalid"
             v-if="$v.limit.$dirty && !$v.limit.minValue"
           >
-            Минимальная величина
+            {{ 'Message_MinimalValue' | localize }} 100
           </span>
         </div>
 
-        <button class="btn waves-effect waves-light" type="submit">
-          Обновить
+        <button class="btn waves-effect waves-light teal lighten-3" type="submit">
+          {{ 'Update' | localize }}
           <i class="material-icons right">send</i>
         </button>
       </form>
@@ -65,6 +65,7 @@
 
 <script>
 import {minValue, required} from "vuelidate/lib/validators";
+import localizeFilter from "@/filters/localize.filter";
 
 export default {
   name: "CategoryEdit",
@@ -102,7 +103,7 @@ export default {
         await this.$store.dispatch('updateCategory', categoryData)
 
         this.$v.$reset()
-        this.$message('Category was updated!')
+        this.$message(localizeFilter('Category_Updated'))
         this.$emit('updated', categoryData)
 
       } catch (e) {}
