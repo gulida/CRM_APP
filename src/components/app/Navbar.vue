@@ -5,13 +5,13 @@
         <a href="#" @click="$emit('dehaze')">
           <i class="material-icons white-text">dehaze</i>
         </a>
-        <span class="white-text">{{  date | date('datetime')  }}</span>
+        <span class="content-text white-text">{{  date | date('datetime')  }}</span>
       </div>
 
-      <ul class="right hide-on-small-and-down">
+      <ul class="right">
         <li>
           <a
-            class="dropdown-trigger white-text"
+            class="dropdown-trigger white-text content-text"
             href="#"
             data-target="dropdown"
             ref="dropdown"

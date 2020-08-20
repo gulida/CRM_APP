@@ -10,7 +10,7 @@
 
     <Loader v-if="loading" />
 
-    <div v-else class="row">
+    <div v-else class="row row-home">
 
       <HomeBill :rates="currency.rates" />
 
