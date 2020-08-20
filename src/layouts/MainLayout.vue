@@ -4,7 +4,7 @@
 
     <div v-else class="app-main-layout">
 
-      <Navbar @dehaze="isOpen = !isOpen" />
+      <Navbar v-model="isOpen" @dehaze="isOpen = !isOpen" />
 
       <Sidebar v-model="isOpen" :key="locale"/>
 

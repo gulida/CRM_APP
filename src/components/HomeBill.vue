@@ -1,5 +1,5 @@
 <template>
-  <div class="col s12 m6 l4">
+  <div class="col s12 m6 l4 margin">
     <div class="card teal lighten-3 bill-card">
       <div class="card-content white-text">
         <span class="card-title">{{ 'Bill_In_Currency' | localize }}</span>

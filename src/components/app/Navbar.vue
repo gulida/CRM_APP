@@ -2,10 +2,10 @@
   <nav class="navbar cyan darken-4">
     <div class="nav-wrapper">
       <div class="navbar-left">
-        <a href="#" @click="$emit('dehaze')">
-          <i class="material-icons white-text">dehaze</i>
+        <a href="#" @click="dehazeClear">
+          <i class="material-icons white-text">{{ openClose }}</i>
         </a>
-        <span class="content-text white-text">{{  date | date('datetime')  }}</span>
+        <span class="content-text white-text hide-on-small-and-down">{{  date | date('datetime')  }}</span>
       </div>
 
       <ul class="right">
@@ -42,12 +42,17 @@
 <script>
   export default {
     name: "Navbar",
+    props: ['isOpen'],
     data: () => ({
       date: new Date(),
       dropdown: null,
-      interval: null
+      interval: null,
+      isOpenClose: true
     }),
     computed: {
+      openClose () {
+        return this.isOpenClose ? 'clear' : 'dehaze'
+      },
       name() {
         return this.$store.getters.info.name
       }
@@ -56,9 +61,15 @@
       async logout () {
         await this.$store.dispatch('logout')
         this.$router.push('/login?message=logout')
+      },
+
+      dehazeClear () {
+        this.isOpenClose = !this.isOpenClose
+        this.$emit('dehaze')
       }
     },
     mounted() {
+      this.isOpenClose = !this.isOpen
       this.interval = setInterval(() => {
         this.date = new Date()
       }, 1000)

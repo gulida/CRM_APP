@@ -206,11 +206,13 @@
 		width: 300px
 	}
 
-	.content-text {
-		font-size: 10px;
+	.app-sidenav.open {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+		width: 100%
 	}
-	.row-home {
-		padding-bottom: 2rem;
+
+	.margin {
 		margin-bottom: 2rem;
 	}
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="col s12 m6">
+  <div class="col s12 m6 margin">
     <div>
       <div class="page-subtitle">
         <h4>{{ 'Create' | localize }}</h4>
